@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivideAndConquer", "DivideAndConquer\DivideAndConquer.csproj", "{3B75D3F0-B201-40ED-A4DF-B66405A9EF78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DivideAndConquer.Tests", "DivideAndConquer.Tests\DivideAndConquer.Tests.csproj", "{E5D7C74A-3FD5-445F-9083-FA7BE2A5CB28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B75D3F0-B201-40ED-A4DF-B66405A9EF78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B75D3F0-B201-40ED-A4DF-B66405A9EF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B75D3F0-B201-40ED-A4DF-B66405A9EF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B75D3F0-B201-40ED-A4DF-B66405A9EF78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5D7C74A-3FD5-445F-9083-FA7BE2A5CB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5D7C74A-3FD5-445F-9083-FA7BE2A5CB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5D7C74A-3FD5-445F-9083-FA7BE2A5CB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D7C74A-3FD5-445F-9083-FA7BE2A5CB28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC435456-8573-4CD4-BAC7-5597543E4ED5}
+	EndGlobalSection
+EndGlobal
