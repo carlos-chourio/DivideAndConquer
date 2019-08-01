@@ -4,21 +4,16 @@ namespace DivideAndConquer {
     public class MergeSort<T> where T : IComparable { 
 
         public T[] Sort(T[] value) {
-            var splittedValue = Split(value);
-            var value1 = splittedValue.Item1;
-            var value2 = splittedValue.Item2;
-            return Sort(value1, value2);
-        }
-
-        private T[] Sort(T[] value1, T[] value2) {
-            if (value1.Length == 2) {
-                return Merge(value1, value2);
+            (T[] leftArray, T[] rightArray) splittedArray = Split(value);
+            if (value.Length==2) {
+                return Merge(splittedArray.leftArray, splittedArray.rightArray);
             } else {
-                value1 = Sort(value1);
-                value2 = Sort(value2);
-                return Sort(value1, value2);
+                var x = Sort(splittedArray.leftArray);
+                var y = Sort(splittedArray.rightArray);
+                return Merge(x, y);
             }
         }
+        
 
         public T[] Merge(T[] a, T[] b) {
             int i = 0, j = 0, lengthA = a.Length, lengthB = b.Length;

@@ -37,9 +37,10 @@ namespace DivideAndConquer.Tests {
         [Test]
         public void SortArray() {
             var sut = new MergeSort<double>();
-            var x = GenerateRandomArray(8);
+            var x = GenerateRandomArray(_Random.Next(100));
             var result = sut.Sort(x);
             Assert.That(result, Has.Exactly(x.Length).Items);
+            Assert.That(result, Is.Ordered.Ascending);
         }
 
         private double[] GenerateRandomArray(int size, int maxValue = 500) {
