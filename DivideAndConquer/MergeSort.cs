@@ -5,7 +5,7 @@ namespace DivideAndConquer {
 
         public T[] Sort(T[] value) {
             (T[] leftArray, T[] rightArray) splittedArray = Split(value);
-            if (value.Length==2) {
+            if (value.Length<=2) {
                 return Merge(splittedArray.leftArray, splittedArray.rightArray);
             } else {
                 var x = Sort(splittedArray.leftArray);
@@ -31,7 +31,13 @@ namespace DivideAndConquer {
                     }
                 }
             }
-            c[lengthA + lengthB - 1] = a[lengthA - 1].CompareTo(b[lengthB - 1]) > 0 ? a[lengthA - 1] : b[lengthB - 1];
+            if (lengthA != 0 && lengthB != 0) {
+                c[lengthA + lengthB - 1] = a[lengthA - 1].CompareTo(b[lengthB - 1]) > 0 ? a[lengthA - 1] : b[lengthB - 1];
+            } else if (lengthA!=0) {
+                c[lengthA + lengthB - 1] = a[lengthA - 1];
+            } else if (lengthB!=0) {
+                c[lengthA + lengthB - 1] = b[lengthB - 1];
+            }
             return c;
         }
 
