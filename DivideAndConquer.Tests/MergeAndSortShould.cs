@@ -25,7 +25,7 @@ namespace DivideAndConquer.Tests {
         [Test]
         public void SplitArrayInTwo() {
             var sut = new MergeSort<double>();
-            int sourceSize = _Random.Next(100);
+            int sourceSize = _Random.Next(10);
             var x = GenerateRandomArray(sourceSize);
             var result = sut.Split(x);
             Assert.That(result.Item1, Has.Exactly(sourceSize/2).Items);
@@ -37,7 +37,7 @@ namespace DivideAndConquer.Tests {
         [Test]
         public void SortArray() {
             var sut = new MergeSort<double>();
-            var x = GenerateRandomArray(_Random.Next(100));
+            var x = GenerateRandomArray(7);
             var result = sut.Sort(x);
             Assert.That(result, Has.Exactly(x.Length).Items);
             Assert.That(result, Is.Ordered.Ascending);
