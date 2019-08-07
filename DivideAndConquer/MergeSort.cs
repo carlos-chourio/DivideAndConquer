@@ -1,10 +1,10 @@
-﻿using System;
+﻿using DivideAndConquer.Helper;
+using System;
 
 namespace DivideAndConquer {
-    public class MergeSort<T> where T : IComparable { 
-
+    public class MergeSort<T> where T : IComparable {
         public T[] Sort(T[] value) {
-            (T[] leftArray, T[] rightArray) splittedArray = Split(value);
+            (T[] leftArray, T[] rightArray) splittedArray = ArrayHelper.Split(value);
             if (value.Length<=2) {
                 return Merge(splittedArray.leftArray, splittedArray.rightArray);
             } else {
@@ -13,42 +13,34 @@ namespace DivideAndConquer {
                 return Merge(x, y);
             }
         }
-        
 
         public T[] Merge(T[] a, T[] b) {
             int i = 0, j = 0, lengthA = a.Length, lengthB = b.Length;
             T[] c = new T[lengthA + lengthB];
-            for (int k = 0; k < lengthA + lengthB - 1 ; k++) {
-                if (a[i].CompareTo(b[j]) < 0) {
+            bool reachedTheEnd = false;
+            for (int k = 0; k < lengthA + lengthB - 1; k++) {
+                if (a[i].CompareTo(b[j]) < 0 && !reachedTheEnd) {
                     c[k] = a[i];
-                    if (i < lengthA-1) {
+                    if (i < lengthA - 1) {
                         i++;
+                    } else {
+                        reachedTheEnd = true;
                     }
                 } else {
                     c[k] = b[j];
-                    if (j < lengthB-1) {
+                    if (j < lengthB - 1) {
                         j++;
                     }
                 }
             }
             if (lengthA != 0 && lengthB != 0) {
                 c[lengthA + lengthB - 1] = a[lengthA - 1].CompareTo(b[lengthB - 1]) > 0 ? a[lengthA - 1] : b[lengthB - 1];
-            } else if (lengthA!=0) {
+            } else if (lengthA != 0) {
                 c[lengthA + lengthB - 1] = a[lengthA - 1];
-            } else if (lengthB!=0) {
+            } else if (lengthB != 0) {
                 c[lengthA + lengthB - 1] = b[lengthB - 1];
             }
             return c;
-        }
-
-        public (T[],T[]) Split(T[] value) {
-            int leftSize = value.Length / 2;
-            int rightSize = value.Length - leftSize;
-            T[] left = new T[leftSize];
-            T[] right = new T[rightSize];
-            Array.Copy(value, left, leftSize);
-            Array.Copy(value, leftSize, right, 0, rightSize);
-            return (left, right);
         }
     }
 }

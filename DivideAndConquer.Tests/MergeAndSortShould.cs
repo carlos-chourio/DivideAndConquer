@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using DivideAndConquer.Helper;
+using NUnit.Framework;
 using System;
 using System.Linq;
 
@@ -27,7 +28,7 @@ namespace DivideAndConquer.Tests {
             var sut = new MergeSort<double>();
             int sourceSize = _Random.Next(10);
             var x = GenerateRandomArray(sourceSize);
-            var result = sut.Split(x);
+            var result = ArrayHelper.Split(x);
             Assert.That(result.Item1, Has.Exactly(sourceSize/2).Items);
             Assert.That(result.Item2, Has.Exactly(sourceSize - sourceSize / 2).Items);
             Assert.That(result.Item1, Is.EqualTo(x.Take(sourceSize / 2)));
@@ -37,9 +38,10 @@ namespace DivideAndConquer.Tests {
         [Test]
         public void SortArray() {
             var sut = new MergeSort<double>();
-            var x = GenerateRandomArray(7);
+            double[] x = GenerateRandomArray(7);
             var result = sut.Sort(x);
             Assert.That(result, Has.Exactly(x.Length).Items);
+            Assert.That(result, Is.SubsetOf(x));
             Assert.That(result, Is.Ordered.Ascending);
         }
 
