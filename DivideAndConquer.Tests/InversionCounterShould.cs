@@ -6,9 +6,11 @@ namespace DivideAndConquer.Tests {
         public void CountInversions() {
             var mergeSort = new MergeSort<double>();
             var sut = new InversionCounter();
-            int[] testArray = { 1, 3, 5, 2, 4, 6 };
+            //int[] testArray = { 4, 1, 2, 3 };
+            int[] testArray = { 6,  5, 4, 3, 2, 1 };
+
             int splitInv = sut.CountInversions(testArray);
-            Assert.That(splitInv, Is.EqualTo(3));
+            Assert.That(splitInv, Is.EqualTo(15));
         }
     }
 }

@@ -5,7 +5,7 @@ namespace DivideAndConquer {
     public class InversionCounter {
         public int CountInversions(int[] source) {
             (int[] left, int[] right) = ArrayHelper.Split(source);
-            if (source.Length <= 2)
+            if (left.Length <= 2 && right.Length<=2)
                 return MergeAndCount(left, right);
             else {
 
@@ -17,10 +17,10 @@ namespace DivideAndConquer {
         }
 
         public int MergeAndCount(int[] A, int[] B) {
-            int i = 0, j = 0, lenA = A.Length, lenB = B.Length, longitudC = lenA + lenB, inversionCount = 0;
-            int[] C = new int[longitudC];
+            int i = 0, j = 0, lenA = A.Length, lenB = B.Length, lenC = lenA + lenB, inversionCount = 0;
+            int[] C = new int[lenC];
             bool aExhausted = false;
-            for (int k = 0; k < longitudC - 1; k++) {
+            for (int k = 0; k < lenC - 1; k++) {
                 if (A[i] < B[j] && !aExhausted) {
                     C[k] = A[i];
                     if (i < lenA - 1) {
